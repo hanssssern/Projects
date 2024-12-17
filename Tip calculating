@@ -1,0 +1,17 @@
+print("Welcome to the tip calculator")
+
+# Input values (ensure inputs are properly stored and converted)
+TotalBill = float(input("What was the total bill? $"))  # Convert to float
+TotalTipPercentage = float(input("How much tip would you like to give? 10, 12, or 15? "))  # Convert to float
+TotalPeople = int(input("How many people to split the bill? "))  # Convert to integer
+
+# Validate inputs to ensure no division errors
+if TotalPeople == 0:
+    print("Number of people cannot be zero.")
+else:
+    # Calculate the tip and the total per person
+    TotalTip = (TotalTipPercentage / 100) * TotalBill  # Calculate tip amount
+    Bill_withTip = (TotalBill + TotalTip) / TotalPeople  # Total amount per person
+
+    # Output result
+    print(f"Each person owes: ${Bill_withTip:.2f}")
