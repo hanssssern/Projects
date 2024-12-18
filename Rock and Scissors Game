@@ -1,0 +1,46 @@
+import random
+rock = '''  
+    _______
+---'   ____)  
+      (_____)  
+      (_____)  
+      (____)
+---.__(___)  
+'''
+
+paper = '''  
+    _______
+---'   ____)____  
+          ______)  
+          _______)  
+         _______)
+---.__________)  
+'''
+
+scissors = '''  
+    _______
+---'   ____)____  
+          ______)  
+       __________)  
+      (____)
+---.__(___)  
+'''
+
+ComputerChoice=0
+
+
+userChoice=int(input("What do you choose,type 0 for rock, 1 for Paper 2 for Scissors"))
+if(userChoice==0):print("Your choice--",rock)
+elif(userChoice==1):print("Your choice--",paper)
+elif(userChoice==2):print("Your choice--",scissors)
+
+computerChoice=random.randint(0,2)
+if(ComputerChoice==0 and userChoice==0):print("Computer's Choice",rock,"Tie")
+elif(ComputerChoice==0 and userChoice==1):print("Computer's Choice",rock,"You Win")
+elif(ComputerChoice==0 and userChoice==2):print("Computer's Choice",rock,"You Lose!!")
+elif(ComputerChoice==1 and userChoice==0):print("Computer's Choice",paper,"You Lose!!")
+elif(ComputerChoice==1 and userChoice==1):print("Computer's Choice",paper,"Tie")
+elif(ComputerChoice==1 and userChoice==2):print("Computer's Choice",paper,"You Win")
+elif(ComputerChoice==2 and userChoice==0):print("Computer's Choice",scissors,"You Win")
+elif(ComputerChoice==2 and userChoice==1):print("Computer's Choice",scissors,"You Lose")
+elif(ComputerChoice==2 and userChoice==2):print("Computer's Choice",scissors,"Tie")
