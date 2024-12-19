@@ -1,0 +1,39 @@
+import random
+
+# Initialize user lives and other variables
+UserLife = 0
+blankList = []
+words = ["apple", "bee", "soup"]
+selected_word = random.choice(words)
+wordList = list(selected_word)
+
+# Initialize blankList with underscores for each letter in the selected word
+blankList = ["_" for _ in wordList]
+
+# Game loop
+while UserLife < 3:
+    print("\nCurrent word progress:", " ".join(blankList))
+    print("Remaining lives:", 3 - UserLife)
+
+    # Prompt user for a letter
+    GuessedLetter = input("Guess a letter: ").lower()
+
+    if GuessedLetter in wordList:
+        # Update all occurrences of the guessed letter in blankList
+        for i, letter in enumerate(wordList):
+            if letter == GuessedLetter:
+                blankList[i] = GuessedLetter
+
+        print("Correct guess!")
+    else:
+        print("Wrong guess. You lose a life.")
+        UserLife += 1
+
+    # Check if the user has guessed the whole word
+    if "_" not in blankList:
+        print("\nCongratulations! You've guessed the word:", "".join(blankList))
+        break
+
+# Game over condition
+if UserLife == 3:
+    print("\nYou've lost all your lives. The word was:", selected_word)
